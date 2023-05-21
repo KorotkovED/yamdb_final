@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
-from rest_framework import status, filters
+from rest_framework import filters, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.pagination import PageNumberPagination
@@ -12,13 +12,9 @@ from rest_framework.viewsets import ModelViewSet
 
 from .models import User
 from .permissions import IsAdmin, IsUser
-from .serializers import (
-    SignUpSerializer,
-    ConformationCodeSerializer,
-    UserSerializer,
-    JustUserSerializer
-)
-from .services import send_code_to_email, get_tokens_for_user
+from .serializers import (ConformationCodeSerializer, JustUserSerializer,
+                          SignUpSerializer, UserSerializer)
+from .services import get_tokens_for_user, send_code_to_email
 
 OK_STATUS = status.HTTP_200_OK
 BAD_STATUS = status.HTTP_400_BAD_REQUEST

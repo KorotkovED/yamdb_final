@@ -19,11 +19,10 @@ def get_confirmation_code(username: str) -> str:
         user = User.objects.get(username=username)
     except ObjectDoesNotExist as e:
         raise e
-    confirmation_code = str(uuid.uuid4())
-    user.confirmation_code = confirmation_code
+    user.confirmation_code = str(uuid.uuid4())
     user.is_active = False
     user.save()
-    return confirmation_code
+    return user.confirmation_code
 
 
 def send_code_to_email(username: str, email: str) -> None:

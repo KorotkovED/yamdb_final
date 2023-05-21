@@ -1,9 +1,8 @@
-from django.shortcuts import get_object_or_404
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, permissions, viewsets
-from rest_framework.pagination import LimitOffsetPagination
-from reviews.models import Category, Genre, Review, Title
-
+from django.shortcuts import get_object_or_404  # isort:skip
+from django_filters.rest_framework import DjangoFilterBackend  # isort:skip
+from rest_framework import filters, permissions, viewsets  # isort:skip
+from rest_framework.pagination import LimitOffsetPagination  # isort:skip
+from reviews.models import Category, Genre, Review, Title  # isort:skip
 from api.filters import TitleFilter
 from api.mixins import MixinViewSet
 from api.permissions import (IsAdminOrReadOnly,
@@ -22,9 +21,9 @@ class ReviewViewSet(viewsets.ModelViewSet):
     pagination_class = LimitOffsetPagination
 
     def get_queryset(self):
-        title = get_object_or_404(Title, pk=self.kwargs.get('title_id'))
-        new_queryset = title.reviews.all()
-        return new_queryset
+        return get_object_or_404(
+            Title, pk=self.kwargs.get('title_id')
+        ).reviews.all()
 
     def perform_create(self, serializer):
         title = get_object_or_404(Title, pk=self.kwargs.get('title_id'))
@@ -46,8 +45,7 @@ class CommentViewSet(viewsets.ModelViewSet):
             Review, pk=self.kwargs.get('review_id'),
             title_id=self.kwargs.get('title_id')
         )
-        new_queryset = review.comments.all()
-        return new_queryset
+        return review.comments.all()
 
     def perform_create(self, serializer):
         review = get_object_or_404(
