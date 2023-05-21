@@ -2,7 +2,7 @@
 [![Python](https://img.shields.io/badge/-Python-464641?style=flat-square&logo=Python)](https://www.python.org/)
 [![Django](https://img.shields.io/badge/-Django-464646?style=flat-square&logo=Django)](https://www.djangoproject.com/)
 [![Pytest](https://img.shields.io/badge/-Pytest-464646?style=flat-square&logo=pytest)](https://docs.pytest.org/en/6.2.x/)
-[![workflows](https://img.shields.io/badge/-workflows-464646?style=flat-square&logo=workflows)](https://docs.github.com/en/actions)
+![workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 
 
 Яндекс Практикум. Проект 16-го спринта: CI и CD проекта api_yamdb.
